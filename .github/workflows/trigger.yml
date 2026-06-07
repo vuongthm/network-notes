@@ -1,0 +1,17 @@
+name: Trigger Main Repo Build
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send repository_dispatch to vuongthm.github.io
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.DEPLOY_PAT }}
+          repository: vuongthm/vuongthm.github.io
+          event-type: content-updated
+          client-payload: '{"source": "network-notes"}'
