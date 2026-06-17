@@ -4,7 +4,7 @@ description: "A clear breakdown of the seven-layer OSI model — what each layer
 tags: ["networking", "osi", "fundamentals"]
 date: "2024-10-01"
 lang: "en"
-password: "hoivuongdi"
+locked: true
 ---
 
 # The OSI Model Explained
