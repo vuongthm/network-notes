@@ -4,6 +4,7 @@ description: "A practical walkthrough of the TCP/IP stack and how each layer map
 tags: ["networking", "tcp-ip", "fundamentals"]
 date: "2025-01-14"
 lang: "en"
+locked: true
 ---
 
 # TCP/IP Model Explained
