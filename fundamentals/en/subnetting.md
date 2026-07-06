@@ -1,155 +1,84 @@
 ---
-title: "Subnetting & IP Addressing"
-description: "How IP addresses are structured, how subnets work, and how to calculate them — with Python examples."
-tags: ["networking", "ip", "subnetting", "fundamentals"]
-date: "2024-10-01"
+title: "Subnetting: Dividing to Manage"
+description: "A large IP range can be divided into multiple smaller networks — subnetting is the technique that decides the network/host portion boundary mentioned in the previous article, and why such division is needed."
+tags: ["subnetting", "fundamentals"]
+date: "2026-7-2"
 lang: "en"
+weight: 6
+locked: false
 ---
 
-# Subnetting & IP Addressing
+# Subnetting: Dividing to Manage
 
-An IP address is a 32-bit number. Subnetting is the practice of dividing a network into smaller logical segments — controlling which hosts can reach which, and how.
+In the article on IP addresses, one question was left open: the boundary between the network portion and the host portion isn't fixed, but is determined by the **subnet mask**. This is exactly the topic of this article — subnetting, the technique that allows a large IP address range to be divided into multiple smaller networks, each smaller network managing its own group of devices.
 
-## Why It Matters
+![Subnet mask network host bits](/media/notes/fundamentals/subnet-mask.png)
 
-Without subnetting, every device on a network competes for the same broadcast domain. Subnetting isolates traffic, improves performance, and enables access control.
+## When a network isn't divided
 
-## The Structure of an IPv4 Address
+Imagine a company with 1000 machines, all sitting in a single large network, undivided. Every device in that network is part of the same **broadcast domain** — meaning a broadcast packet (sent to everyone) from any machine gets sent to all 1000 other machines. As broadcast traffic increases (which naturally happens as more devices join), the entire network slows down, even for machines that have nothing to do with that packet. This is why large networks always need to be divided.
 
-```
-192      .  168      .  1        .  10
-11000000    10101000    00000001    00001010
-```
+## What is subnetting?
 
-An IPv4 address is four octets (8 bits each), written in dotted-decimal notation.
+Subnetting is the process of dividing an IP address range (a network) into multiple smaller ranges (called **subnets**), by "borrowing" a number of bits from the host portion to turn them into an extension of the network portion. This is done through the **subnet mask** — a 32-bit sequence used to determine which bits belong to the network portion and which belong to the host portion.
 
-### CIDR Notation
+## How the subnet mask works
 
-A subnet is expressed as `address/prefix`, where the prefix is the number of bits reserved for the **network** portion.
+The subnet mask has the same length as the IP address (32 bits for IPv4), where a `1` bit represents the network portion, and a `0` bit represents the host portion.
 
 ```
-192.168.1.0/24
-            ^--- 24 bits for network, 8 bits for hosts
+IP address:   192.168.1.10   → 11000000.10101000.00000001.00001010
+Subnet mask:  255.255.255.0  → 11111111.11111111.11111111.00000000
+                                └────── network ──────┘└─ host ─┘
 ```
 
-| CIDR | Subnet Mask     | Hosts Available |
-|------|-----------------|-----------------|
-| /8   | 255.0.0.0       | 16,777,214      |
-| /16  | 255.255.0.0     | 65,534          |
-| /24  | 255.255.255.0   | 254             |
-| /30  | 255.255.255.252 | 2               |
+In this example, the first 24 bits (first 3 octets) are the network portion, and the last 8 bits are the host portion — meaning this network can hold a maximum of 2^8 = 256 host addresses (minus 2 special addresses, the network address and the broadcast address, leaving 254 addresses actually usable).
 
-> **Note:** Hosts available = 2^(32−prefix) − 2. The two subtracted addresses are the network address and the broadcast address.
+### CIDR notation — a more compact way to write it
 
-## Calculating Subnets in Python
-
-The standard library's `ipaddress` module handles all of this cleanly.
-
-```python
-import ipaddress
-
-net = ipaddress.ip_network("192.168.1.0/24")
-
-print(net.network_address)   # 192.168.1.0
-print(net.broadcast_address) # 192.168.1.255
-print(net.netmask)           # 255.255.255.0
-print(net.num_addresses)     # 256
-print(list(net.hosts())[:3]) # [192.168.1.1, 192.168.1.2, 192.168.1.3]
-```
-
-### Splitting a Network into Subnets
-
-```python
-import ipaddress
-
-parent = ipaddress.ip_network("10.0.0.0/8")
-
-# Split into /10 subnets
-subnets = list(parent.subnets(new_prefix=10))
-
-for subnet in subnets[:4]:
-    print(f"{subnet}  →  hosts: {subnet.num_addresses - 2}")
-
-# Output:
-# 10.0.0.0/10   →  hosts: 4194302
-# 10.64.0.0/10  →  hosts: 4194302
-# 10.128.0.0/10 →  hosts: 4194302
-# 10.192.0.0/10 →  hosts: 4194302
-```
-
-### Checking if a Host Belongs to a Subnet
-
-```python
-import ipaddress
-
-subnet = ipaddress.ip_network("192.168.10.0/24")
-host   = ipaddress.ip_address("192.168.10.55")
-
-if host in subnet:
-    print(f"{host} is in {subnet}")
-else:
-    print(f"{host} is NOT in {subnet}")
-```
-
-## Private Address Ranges (RFC 1918)
-
-These ranges are reserved and not routed on the public internet.
-
-| Range              | CIDR           | Common Use          |
-|--------------------|----------------|---------------------|
-| 10.0.0.0–10.255.255.255 | 10.0.0.0/8 | Large enterprise |
-| 172.16.0.0–172.31.255.255 | 172.16.0.0/12 | Mid-size networks |
-| 192.168.0.0–192.168.255.255 | 192.168.0.0/16 | Home / small office |
-
-```python
-import ipaddress
-
-addresses = ["10.5.1.1", "172.20.0.1", "8.8.8.8", "192.168.0.100"]
-
-for addr in addresses:
-    ip = ipaddress.ip_address(addr)
-    print(f"{addr:20s} private={ip.is_private}")
-
-# 10.5.1.1             private=True
-# 172.20.0.1           private=True
-# 8.8.8.8              private=False
-# 192.168.0.100        private=True
-```
-
-## Supernetting (Route Summarization)
-
-The reverse of subnetting — combining adjacent networks into a single, larger prefix for cleaner routing tables.
-
-```python
-import ipaddress
-
-nets = [
-    ipaddress.ip_network("192.168.0.0/24"),
-    ipaddress.ip_network("192.168.1.0/24"),
-    ipaddress.ip_network("192.168.2.0/24"),
-    ipaddress.ip_network("192.168.3.0/24"),
-]
-
-supernet = ipaddress.collapse_addresses(nets)
-
-for net in supernet:
-    print(net)  # 192.168.0.0/22
-```
-
-## The Practical Reality
-
-In production you rarely calculate by hand. But understanding the binary math matters when:
-
-- **Debugging routing issues**: Why is traffic going to the wrong gateway?
-- **Designing VPC/VLAN layouts**: Avoiding overlapping ranges between environments
-- **Reading firewall rules**: `0.0.0.0/0` means all traffic; `/32` means exactly one host
-
-### Quick mental check
-
-If two hosts share the same network address after applying the subnet mask, they are on the same subnet — no router needed.
+Instead of writing out the full subnet mask (`255.255.255.0`), the more common notation in practice is **CIDR notation** (Classless Inter-Domain Routing, defined in RFC 4632) — you just need to write the number of network portion bits after a slash:
 
 ```
-Host A:  192.168.1.10  &  255.255.255.0  =  192.168.1.0  ✓
-Host B:  192.168.1.99  &  255.255.255.0  =  192.168.1.0  ✓  → same subnet
-Host C:  192.168.2.5   &  255.255.255.0  =  192.168.2.0  ✗  → different subnet, needs router
+192.168.1.10/24
 ```
+
+This means the first 24 bits are the network portion — equivalent to the subnet mask `255.255.255.0`. This notation is shorter, and is the standard used in most documentation, router configurations, and modern networking tools.
+
+### Common CIDR table
+
+| CIDR | Subnet mask | Number of host portion bits | Number of usable host addresses |
+|---|---|---|---|
+| /24 | 255.255.255.0 | 8 | 254 |
+| /25 | 255.255.255.128 | 7 | 126 |
+| /26 | 255.255.255.192 | 6 | 62 |
+| /27 | 255.255.255.224 | 5 | 30 |
+| /28 | 255.255.255.240 | 4 | 14 |
+
+General formula: number of usable host addresses = 2^(number of host bits) − 2 (subtracting the network address and broadcast address of that subnet).
+
+## A concrete subnet calculation example
+
+Suppose there's a network range `192.168.1.0/24` (256 addresses), and it needs to be divided into 4 smaller subnets for 4 departments. The approach: borrow 2 more bits from the host portion (since 2^2 = 4, enough to create 4 subnets), turning `/24` into `/26`:
+
+| Subnet | Address range | Network address | Broadcast address |
+|---|---|---|---|
+| Subnet 1 | 192.168.1.0 – 192.168.1.63 | 192.168.1.0 | 192.168.1.63 |
+| Subnet 2 | 192.168.1.64 – 192.168.1.127 | 192.168.1.64 | 192.168.1.127 |
+| Subnet 3 | 192.168.1.128 – 192.168.1.191 | 192.168.1.128 | 192.168.1.191 |
+| Subnet 4 | 192.168.1.192 – 192.168.1.255 | 192.168.1.192 | 192.168.1.255 |
+
+Each /26 subnet has 2^6 = 64 addresses, of which 62 addresses are usable for hosts (excluding that subnet's own network address and broadcast address).
+
+## VLSM — when subnets don't need to be equal
+
+The division above creates 4 equally sized subnets — but in practice, departments usually have different numbers of machines. **VLSM (Variable Length Subnet Mask)** is a technique that allows dividing subnets of different sizes from the same large network range, avoiding wasted addresses. For example: the engineering department, needing 100 machines, could use a /25 subnet (126 usable addresses), while the reception department, needing only 5 machines, could use a /29 subnet (6 usable addresses) — instead of both being forced into the same /26 size as in the simple example above.
+
+## Common mistakes
+
+- Confusing the network address (the first address of a subnet, e.g. `192.168.1.0`) with an address that can be assigned to a device — the two special addresses (network address and broadcast address) of each subnet can never be assigned to a regular host.
+- Miscalculating the number of bits that need to be borrowed when dividing into N subnets — the rule is to borrow enough bits so that 2^(number of borrowed bits) ≥ N, not simply calculating based on an intuitive equal division of subnets.
+- Making subnets too small from the start (for example, using an entire /30 for a department that might expand) — when that department needs more machines, the entire network range will have to be re-planned, causing unnecessary disruption.
+
+#### Conclusion
+
+Subnetting isn't just a bit-calculation exercise — it's a tool for keeping large networks running smoothly, by limiting the scope of the broadcast domain and organizing addresses according to the actual organizational structure (departments, areas, functions). The network/host portion boundary isn't a fixed number — it's a design decision, and the subnet mask is the tool used to implement that decision.

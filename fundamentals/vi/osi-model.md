@@ -2,9 +2,10 @@
 title: "Mô Hình OSI Giải Thích Rõ Ràng"
 description: "Phân tích rõ ràng về mô hình OSI bảy tầng — mỗi tầng làm gì, tại sao mô hình tồn tại, và cách ghi nhớ nó."
 tags: ["networking", "osi", "cơ bản"]
-date: "2024-10-01"
+date: "2025-7-1"
 lang: "vi"
-locked: true
+weight: 1
+locked: false
 ---
 
 # Mô Hình OSI Giải Thích Rõ Ràng
