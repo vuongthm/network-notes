@@ -6,6 +6,10 @@ date: "2026-07-03"
 lang: "en"
 weight: 9
 locked: false
+learning:
+  path: network-foundations
+  section: links-and-services
+  step: mac-and-arp
 ---
 
 # MAC Address and ARP
@@ -71,3 +75,33 @@ arp -a
 #### Conclusion
 
 ARP is one of the most "quiet" protocols in networking — it runs at a very low layer, no one calls it directly, but almost all communication within a LAN depends on it working correctly. Understanding ARP means understanding how the IP and MAC addressing layers, which were designed independently of each other, are connected together into a unified system in practice.
+
+```quiz
+{
+  "title": "Check your understanding",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "What does ARP do on an IPv4 LAN?",
+      "options": [
+        "Encrypt Ethernet frames",
+        "Resolve a next-hop IPv4 address to a MAC address",
+        "Resolve a domain name to an IP"
+      ],
+      "answer": 1,
+      "explanation": "ARP resolves addresses on the local link; DNS handles domain names."
+    },
+    {
+      "id": "q2",
+      "question": "How is an Ethernet ARP request normally sent when the target MAC is unknown?",
+      "options": [
+        "Broadcast within the broadcast domain",
+        "To every router on the Internet",
+        "Only to an already-known target MAC"
+      ],
+      "answer": 0,
+      "explanation": "An ARP request is link-scoped within the broadcast domain, not an Internet-wide query."
+    }
+  ]
+}
+```

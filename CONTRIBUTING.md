@@ -1,40 +1,30 @@
-# Contributing Content to network-notes
+# Đóng góp nội dung
 
-We welcome your contributions to improve, update, or translate our technical notes and stories. This document explains how you can propose new writing or correct existing ones.
+Repo này chứa ghi chép kiến thức theo module. Thêm bài ở `vi/new-note.md` hoặc trong nhóm nội dung sẵn có; bản Anh đặt ở `en/new-note.md`. Ảnh/diagram nằm trong `media/` và được tham chiếu bằng đường dẫn tương đối.
 
-## Guidelines for Writers
-
-### 1. Frontmatter Requirements
-
-Every Markdown file must begin with a standardized metadata block at the top. Here is the template:
-
+```markdown
 ---
-title: "The Standardized Title"
-description: "A short, concise summary of what this document covers."
-tags: ["networking", "osi", "fundamentals"]
-date: "YYYY-MM-DD"
-lang: "en"
-weight: 10
+id: network-notes:new-note
+title: Tiêu đề ghi chép
+description: Người đọc sẽ hiểu điều gì?
+date: 2026-01-01
+status: draft
+kind: note
+level: beginner
 ---
 
-- Title: Keep it descriptive and clear.
-- Description: Ensure it fits beautifully in cards.
-- Lang: Specify "en" for English and "vi" for Vietnamese.
-- Weight: The progressive sequence order (lower numbers appear first).
+## Nội dung
 
-### 2. File Structure
+Giải thích, ví dụ có thể kiểm chứng và nguồn tham khảo.
+```
 
-Organize files into their respective subfolders and locales:
-- `network-notes/category-name/en/your-note.md`
-- `network-notes/category-name/vi/your-note.md`
+Dùng topic của `module.json`. Khi góp bài theo lộ trình, thêm đúng `learning.path`, `learning.section`, `learning.step` trong định nghĩa lộ trình của module; bài độc lập bỏ trường `learning`. Có thể góp bản dịch, sửa lỗi hoặc câu hỏi tự ôn dưới dạng fence `quiz` với đáp án và giải thích.
 
-Place any related diagnostic diagrams or SVG drawings inside the `media` subdirectory at the category level:
-- `network-notes/category-name/media/your-drawing.svg`
+## Gửi thay đổi
 
-## Submission Process
+1. Tạo nhánh hoặc fork, sửa đúng nội dung và ngôn ngữ liên quan.
+2. Giữ ID/slug cũ khi sửa bài; giữ chung ID hoặc `translationKey` giữa các bản dịch.
+3. Kiểm tra cú pháp, code/ví dụ và nguồn tham khảo. Chỉ dùng media có quyền sử dụng.
+4. Giữ bài mới ở trạng thái draft để review. Ghi rõ nội dung và cách kiểm tra trong PR.
 
-1. Fork this content repository on GitHub.
-2. Add your new markdown files or apply corrections to existing ones.
-3. Commit and push your changes to your fork.
-4. Submit a Pull Request pointing to our main branch.
-5. We will review the content, check formatting alignment, and merge once ready.
+Không đưa credential, nội dung cá nhân chưa được phép công khai, dependencies hoặc cache vào PR. Các thiết lập vận hành do maintainer quản lý; không cần yêu cầu khóa cá nhân để gửi đóng góp.

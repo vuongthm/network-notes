@@ -6,6 +6,10 @@ date: "2026-07-01"
 lang: "en"
 weight: 7
 locked: false
+learning:
+  path: network-foundations
+  section: links-and-services
+  step: ports-and-sockets
 ---
 
 # Ports and Sockets: Identifying Applications
@@ -82,3 +86,33 @@ When a client application (for example, a browser) initiates a connection, the o
 #### Conclusion
 
 An IP address gets data to the right front door of the house, but the port is what leads the data to the right room inside. Without ports, every application on the same machine would have to compete for the same single stream of data — and the Internet as it exists today, where one machine can browse the web, make a video call, and download a file all at once, wouldn't be able to function.
+
+```quiz
+{
+  "title": "Check your understanding",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "What do TCP/UDP ports distinguish on a host?",
+      "options": [
+        "Users by their full names",
+        "Application or service endpoints",
+        "Physical network cards"
+      ],
+      "answer": 1,
+      "explanation": "A port is part of a transport endpoint, not a physical connector."
+    },
+    {
+      "id": "q2",
+      "question": "Can TCP and UDP use the same port number?",
+      "options": [
+        "No, each number belongs to only one protocol",
+        "Only when both share a MAC address",
+        "Yes, their port spaces are distinguished by protocol"
+      ],
+      "answer": 2,
+      "explanation": "DNS can use both TCP 53 and UDP 53; the protocol is part of the endpoint description."
+    }
+  ]
+}
+```

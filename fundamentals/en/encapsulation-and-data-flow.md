@@ -6,6 +6,10 @@ date: "2025-7-1"
 lang: "en"
 weight: 4
 locked: false
+learning:
+  path: network-foundations
+  section: network-models
+  step: encapsulation-and-data-flow
 ---
 
 # Encapsulation: How Data Transforms Through Each Layer
@@ -70,3 +74,33 @@ An easy way to picture this: you put a letter (data) into a small envelope with 
 #### Conclusion
 
 Encapsulation is why one layer can change its technology (for example, switching from Wi-Fi to Ethernet at the Link layer) without any other layer needing to know about that change — each layer of packaging only needs to be correct at its own layer, without needing to care how the other layers are wrapped.
+
+```quiz
+{
+  "title": "Check your understanding",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "What normally happens during sender-side encapsulation?",
+      "options": [
+        "Every layer uses the same MAC address",
+        "Data moves down and gains the required protocol information",
+        "All headers are removed before transmission"
+      ],
+      "answer": 1,
+      "explanation": "Each layer adds information for its role; the receiver processes it in reverse."
+    },
+    {
+      "id": "q2",
+      "question": "For a normal IPv4 LAN sending off-link through a gateway, what is the destination MAC?",
+      "options": [
+        "Always the broadcast address",
+        "The local gateway interface MAC",
+        "Always the remote host MAC"
+      ],
+      "answer": 1,
+      "explanation": "The frame crosses the current link; the destination IP still identifies the network-layer destination."
+    }
+  ]
+}
+```

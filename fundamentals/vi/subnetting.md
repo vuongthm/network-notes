@@ -6,6 +6,10 @@ date: "2026-7-2"
 lang: "vi"
 weight: 6
 locked: false
+learning:
+  path: network-foundations
+  section: addressing
+  step: subnetting
 ---
 
 # Subnetting: Chia Nhỏ Để Quản Lý
@@ -82,3 +86,33 @@ Cách chia ở trên tạo ra 4 subnet có kích thước bằng nhau — nhưng
 #### Kết luận
 
 Subnetting không chỉ là bài toán tính toán bit — nó là công cụ để giữ mạng lớn vẫn vận hành mượt mà, bằng cách giới hạn phạm vi broadcast domain và tổ chức địa chỉ theo đúng cấu trúc tổ chức thực tế (phòng ban, khu vực, chức năng). Ranh giới network/host portion không phải một con số cố định — nó là một quyết định thiết kế, và subnet mask chính là công cụ để hiện thực hóa quyết định đó.
+
+```quiz
+{
+  "title": "Tự kiểm tra kiến thức",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Subnet IPv4 /26 có bao nhiêu địa chỉ tổng cộng?",
+      "options": [
+        "26",
+        "64",
+        "62"
+      ],
+      "answer": 1,
+      "explanation": "Còn 32 − 26 = 6 bit host, nên có 2^6 = 64 địa chỉ. Theo quy ước subnet thông thường, 62 địa chỉ dùng cho host."
+    },
+    {
+      "id": "q2",
+      "question": "Subnet mask của /24 là gì?",
+      "options": [
+        "255.255.255.192",
+        "255.255.255.0",
+        "255.255.0.0"
+      ],
+      "answer": 1,
+      "explanation": "24 bit 1 liên tiếp tạo ba octet 255, theo sau bởi octet 0."
+    }
+  ]
+}
+```

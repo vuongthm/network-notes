@@ -6,6 +6,10 @@ date: "2026-07-03"
 lang: "vi"
 weight: 9
 locked: false
+learning:
+  path: network-foundations
+  section: links-and-services
+  step: mac-and-arp
 ---
 
 # MAC Address và ARP
@@ -79,3 +83,33 @@ arp -a
 #### Kết luận
 
 ARP là một trong những giao thức "âm thầm" nhất trong networking — chạy ở tầng rất thấp, không ai trực tiếp gọi nó, nhưng gần như mọi giao tiếp trong mạng LAN đều phụ thuộc vào nó để hoạt động đúng. Hiểu ARP chính là hiểu cách hai lớp địa chỉ IP và MAC, vốn được thiết kế độc lập với nhau, được kết nối lại thành một hệ thống thống nhất trong thực tế.
+
+```quiz
+{
+  "title": "Tự kiểm tra kiến thức",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "ARP trong LAN IPv4 giải quyết việc gì?",
+      "options": [
+        "Mã hóa frame Ethernet",
+        "Tìm địa chỉ MAC của next hop từ địa chỉ IPv4",
+        "Tìm IP bằng tên miền"
+      ],
+      "answer": 1,
+      "explanation": "ARP phục vụ việc phân giải địa chỉ trên liên kết cục bộ; DNS là hệ thống tên miền."
+    },
+    {
+      "id": "q2",
+      "question": "Khi chưa biết MAC đích, ARP request thường được gửi thế nào trên Ethernet?",
+      "options": [
+        "Broadcast trong broadcast domain",
+        "Đến tất cả router trên Internet",
+        "Chỉ gửi tới một MAC đã biết của máy đích"
+      ],
+      "answer": 0,
+      "explanation": "ARP request có phạm vi liên kết/broadcast domain, không được lan truyền như truy vấn toàn Internet."
+    }
+  ]
+}
+```

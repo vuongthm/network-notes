@@ -6,6 +6,10 @@ date: "2026-07-03"
 lang: "vi"
 weight: 8
 locked: false
+learning:
+  path: network-foundations
+  section: links-and-services
+  step: network-devices
 ---
 
 # Thiết Bị Mạng: Hub, Switch, Router, Access Point
@@ -67,3 +71,33 @@ Nhiều thiết bị gia dụng (thường được gọi chung là "modem Wi-Fi
 #### Kết luận
 
 Không có thiết bị nào trong 4 thiết bị này "tốt hơn" thiết bị còn lại một cách tuyệt đối — mỗi thiết bị được thiết kế để giải quyết đúng một tầng vấn đề cụ thể trong OSI. Switch giải quyết bài toán trong một mạng, router giải quyết bài toán giữa nhiều mạng, và access point giải quyết bài toán không dây hóa hạ tầng có dây. Biết chính xác một sự cố đang nằm ở tầng nào là bước đầu tiên để biết nên nhìn vào thiết bị nào.
+
+```quiz
+{
+  "title": "Tự kiểm tra kiến thức",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Router chủ yếu làm gì trong mạng IP?",
+      "options": [
+        "Chỉ nhân bản bit đến mọi cổng",
+        "Thay thế mọi chức năng DNS",
+        "Chuyển gói giữa các mạng dựa trên thông tin định tuyến"
+      ],
+      "answer": 2,
+      "explanation": "Router quyết định next hop ở tầng mạng; nó không chỉ lặp tín hiệu như hub."
+    },
+    {
+      "id": "q2",
+      "question": "Switch Ethernet học bảng chuyển tiếp từ thông tin nào?",
+      "options": [
+        "MAC nguồn của frame nhận được",
+        "Chỉ tên miền của website",
+        "Chỉ cổng HTTP đích"
+      ],
+      "answer": 0,
+      "explanation": "Switch học MAC nguồn gắn với cổng vào để hỗ trợ chuyển tiếp frame sau đó."
+    }
+  ]
+}
+```

@@ -6,6 +6,10 @@ date: "2026-7-2"
 lang: "en"
 weight: 6
 locked: false
+learning:
+  path: network-foundations
+  section: addressing
+  step: subnetting
 ---
 
 # Subnetting: Dividing to Manage
@@ -82,3 +86,33 @@ The division above creates 4 equally sized subnets — but in practice, departme
 #### Conclusion
 
 Subnetting isn't just a bit-calculation exercise — it's a tool for keeping large networks running smoothly, by limiting the scope of the broadcast domain and organizing addresses according to the actual organizational structure (departments, areas, functions). The network/host portion boundary isn't a fixed number — it's a design decision, and the subnet mask is the tool used to implement that decision.
+
+```quiz
+{
+  "title": "Check your understanding",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "How many total addresses are in an IPv4 /26 subnet?",
+      "options": [
+        "26",
+        "64",
+        "62"
+      ],
+      "answer": 1,
+      "explanation": "There are 6 host bits, giving 2^6 = 64 addresses; a conventional subnet has 62 usable host addresses."
+    },
+    {
+      "id": "q2",
+      "question": "What is the subnet mask for /24?",
+      "options": [
+        "255.255.255.192",
+        "255.255.255.0",
+        "255.255.0.0"
+      ],
+      "answer": 1,
+      "explanation": "Twenty-four consecutive one bits form three 255 octets followed by zero."
+    }
+  ]
+}
+```

@@ -6,6 +6,10 @@ date: "2026-07-03"
 lang: "en"
 weight: 8
 locked: false
+learning:
+  path: network-foundations
+  section: links-and-services
+  step: network-devices
 ---
 
 # Network Devices: Hub, Switch, Router, Access Point
@@ -67,3 +71,33 @@ Many home devices (often collectively called a "Wi-Fi modem" or "Wi-Fi router") 
 #### Conclusion
 
 None of these 4 devices is absolutely "better" than the others — each one is designed to solve a problem at a specific layer of OSI. A switch solves the problem within a network, a router solves the problem between multiple networks, and an access point solves the problem of making wired infrastructure wireless. Knowing exactly which layer an issue is happening at is the first step to knowing which device to look at.
+
+```quiz
+{
+  "title": "Check your understanding",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "What is a router primarily responsible for in an IP network?",
+      "options": [
+        "Only repeating bits to every port",
+        "Replacing all DNS functions",
+        "Forwarding packets between networks using routing information"
+      ],
+      "answer": 2,
+      "explanation": "A router selects a network-layer next hop rather than merely repeating a signal like a hub."
+    },
+    {
+      "id": "q2",
+      "question": "What information does an Ethernet switch use to learn its forwarding table?",
+      "options": [
+        "The source MAC of received frames",
+        "Only website domain names",
+        "Only destination HTTP ports"
+      ],
+      "answer": 0,
+      "explanation": "A switch associates source MAC addresses with ingress ports for subsequent frame forwarding."
+    }
+  ]
+}
+```

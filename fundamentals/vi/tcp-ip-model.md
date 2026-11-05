@@ -6,6 +6,10 @@ date: "2025-7-1"
 lang: "vi"
 weight: 3
 locked: false
+learning:
+  path: network-foundations
+  section: network-models
+  step: tcp-ip-model
 ---
 
 # Mô Hình TCP/IP: 4 Tầng Thực Dụng
@@ -56,3 +60,33 @@ OSI vẫn giữ giá trị lớn ở vai trò **ngôn ngữ chung để mô tả
 #### Kết luận
 
 TCP/IP thắng không phải vì nó hoàn thiện hơn về lý thuyết, mà vì nó chạy được trước và đủ tốt để không ai cần thay thế nó nữa. Đây là một bài học lặp lại nhiều lần trong công nghệ: chuẩn "đủ tốt và chạy trước" thường thắng chuẩn "hoàn hảo nhưng đến sau".
+
+```quiz
+{
+  "title": "Tự kiểm tra kiến thức",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Trong cách chia bốn tầng của bài, thứ tự từ trên xuống là gì?",
+      "options": [
+        "Transport → Application → Physical → Internet",
+        "Application → Transport → Internet → Network Access",
+        "Application → Session → Presentation → Physical"
+      ],
+      "answer": 1,
+      "explanation": "TCP/IP bốn tầng gom các chức năng ứng dụng của OSI và các chức năng truy nhập mạng."
+    },
+    {
+      "id": "q2",
+      "question": "Phát biểu nào đúng về TCP và UDP?",
+      "options": [
+        "Cả hai là giao thức tầng giao vận",
+        "UDP luôn truyền lại dữ liệu bị mất",
+        "TCP tự mã hóa toàn bộ nội dung"
+      ],
+      "answer": 0,
+      "explanation": "TCP và UDP đều ở tầng giao vận, nhưng có đặc tính vận chuyển khác nhau."
+    }
+  ]
+}
+```

@@ -6,6 +6,10 @@ date: "2025-7-1"
 lang: "en"
 weight: 3
 locked: false
+learning:
+  path: network-foundations
+  section: network-models
+  step: tcp-ip-model
 ---
 
 # The TCP/IP Model: 4 Practical Layers
@@ -56,3 +60,33 @@ OSI still holds significant value as a **common language for describing and debu
 #### Conclusion
 
 TCP/IP won not because it was more theoretically complete, but because it ran first and was good enough that no one needed to replace it. This is a lesson that repeats itself over and over in technology: a standard that's "good enough and arrives first" often beats a standard that's "perfect but arrives later".
+
+```quiz
+{
+  "title": "Check your understanding",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "In the four-layer model used in this note, what is the top-down order?",
+      "options": [
+        "Transport → Application → Physical → Internet",
+        "Application → Transport → Internet → Network Access",
+        "Application → Session → Presentation → Physical"
+      ],
+      "answer": 1,
+      "explanation": "The four-layer TCP/IP model groups OSI application functions and network-access functions."
+    },
+    {
+      "id": "q2",
+      "question": "Which statement about TCP and UDP is correct?",
+      "options": [
+        "Both are transport-layer protocols",
+        "UDP always retransmits lost data",
+        "TCP itself encrypts all content"
+      ],
+      "answer": 0,
+      "explanation": "Both operate at the transport layer but provide different transport properties."
+    }
+  ]
+}
+```

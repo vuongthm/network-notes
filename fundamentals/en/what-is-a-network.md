@@ -6,6 +6,10 @@ date: "2025-7-1"
 lang: "en"
 weight: 1
 locked: false
+learning:
+  path: network-foundations
+  section: network-models
+  step: what-is-a-network
 ---
 
 # What Is a Network?
@@ -60,3 +64,33 @@ These problems sound basic, but they're exactly where most real-world networking
 #### Conclusion
 
 A network isn't cables or Wi-Fi signals — it's agreement. Every more complex concept you'll encounter in this series, from IP addresses to TCP or DNS, is just a more detailed layer of standardization built on top of this exact foundational idea: for two unfamiliar devices to understand each other, both must agree to speak the same language.
+
+```quiz
+{
+  "title": "Check your understanding",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "What is a computer network primarily for?",
+      "options": [
+        "Requiring every device to access the Internet",
+        "Turning every device into a router",
+        "Exchanging data and sharing resources between devices"
+      ],
+      "answer": 2,
+      "explanation": "A network can operate internally without Internet access."
+    },
+    {
+      "id": "q2",
+      "question": "How does a protocol help communication?",
+      "options": [
+        "It defines shared exchange rules and formats",
+        "It removes the need for addressing",
+        "It automatically encrypts all data"
+      ],
+      "answer": 0,
+      "explanation": "Participants need common message semantics; encryption depends on the protocol."
+    }
+  ]
+}
+```

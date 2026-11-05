@@ -6,6 +6,10 @@ date: "2026-07-01"
 lang: "en"
 weight: 5
 locked: false
+learning:
+  path: network-foundations
+  section: addressing
+  step: ip-addressing
 ---
 
 # IP Addresses: Structure and Classification
@@ -79,3 +83,33 @@ IPv4 only has about 4.3 billion addresses, and this number has, in practice, run
 #### Conclusion
 
 An IP address isn't just "a number to identify a machine" — it carries within it information about which network that machine belongs to, and the scope in which it's allowed to appear (private or public). Understanding this structure correctly is a required foundation before moving into subnetting — where the network/host portion boundary will be calculated concretely.
+
+```quiz
+{
+  "title": "Check your understanding",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Which address is in an RFC 1918 private IPv4 range?",
+      "options": [
+        "172.40.1.5",
+        "8.8.8.8",
+        "172.20.1.5"
+      ],
+      "answer": 2,
+      "explanation": "172.16.0.0/12 covers 172.16.0.0 through 172.31.255.255, not all 172.x addresses."
+    },
+    {
+      "id": "q2",
+      "question": "What does /24 specify for IPv4?",
+      "options": [
+        "Exactly 24 hosts are connected",
+        "The address is always public",
+        "The first 24 bits form the network prefix"
+      ],
+      "answer": 2,
+      "explanation": "The prefix length divides network and host portions, not the number of active hosts."
+    }
+  ]
+}
+```

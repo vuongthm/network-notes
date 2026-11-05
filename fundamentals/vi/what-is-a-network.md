@@ -6,6 +6,10 @@ date: "2025-7-1"
 lang: "vi"
 weight: 1
 locked: false
+learning:
+  path: network-foundations
+  section: network-models
+  step: what-is-a-network
 ---
 
 # Network Là Gì?
@@ -60,3 +64,33 @@ Những vấn đề này nghe cơ bản, nhưng chính là điểm khởi đầu
 #### Kết luận
 
 Network không phải là dây cáp hay sóng Wi-Fi — nó là sự đồng thuận. Mọi khái niệm phức tạp hơn sẽ gặp trong series này, từ địa chỉ IP đến TCP hay DNS, đều chỉ là những lớp chuẩn hóa chi tiết hơn được xây trên chính ý tưởng nền tảng này: để hai thiết bị xa lạ hiểu nhau, cả hai phải đồng ý nói cùng một thứ ngôn ngữ.
+
+```quiz
+{
+  "title": "Tự kiểm tra kiến thức",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Mục đích cốt lõi của mạng máy tính là gì?",
+      "options": [
+        "Bắt buộc đưa mọi thiết bị lên Internet",
+        "Biến mọi thiết bị thành router",
+        "Trao đổi dữ liệu và chia sẻ tài nguyên giữa các thiết bị"
+      ],
+      "answer": 2,
+      "explanation": "Một mạng có thể hoạt động nội bộ mà không kết nối Internet."
+    },
+    {
+      "id": "q2",
+      "question": "Giao thức giúp các bên giao tiếp như thế nào?",
+      "options": [
+        "Thống nhất quy tắc và định dạng trao đổi",
+        "Loại bỏ nhu cầu địa chỉ",
+        "Bảo đảm mọi dữ liệu tự động được mã hóa"
+      ],
+      "answer": 0,
+      "explanation": "Các bên cần cùng hiểu cách diễn giải thông điệp; mã hóa phụ thuộc giao thức cụ thể."
+    }
+  ]
+}
+```

@@ -1,0 +1,39 @@
+{
+  "id": "network-notes",
+  "adapter": "articles",
+  "title": {
+    "vi": "Mạng máy tính",
+    "en": "Networking",
+    "ja": "ネットワーク",
+    "zh": "计算机网络"
+  },
+  "description": {
+    "vi": "Hiểu đường đi của từng gói tin.",
+    "en": "Understand the journey of every packet.",
+    "ja": "パケットが届くまでの道筋を理解する。",
+    "zh": "理解每个数据包的传递过程。"
+  },
+  "order": 10,
+  "topic": {
+    "id": "networking",
+    "label": {
+      "vi": "Mạng máy tính",
+      "en": "Networking",
+      "ja": "ネットワーク",
+      "zh": "计算机网络"
+    },
+    "description": {
+      "vi": "Hiểu đường đi của từng gói tin.",
+      "en": "Understand the journey of every packet.",
+      "ja": "パケットが届くまでの道筋を理解する。",
+      "zh": "理解每个数据包的传递过程。"
+    },
+    "color": "teal",
+    "symbol": "network"
+  },
+  "defaultTopics": [
+    "networking"
+  ],
+  "legacyRoutes": true,
+  "mediaNamespace": "notes"
+}

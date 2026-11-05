@@ -6,6 +6,10 @@ date: "2026-07-01"
 lang: "vi"
 weight: 5
 locked: false
+learning:
+  path: network-foundations
+  section: addressing
+  step: ip-addressing
 ---
 
 # Địa Chỉ IP: Cấu Trúc và Phân Loại
@@ -79,3 +83,33 @@ IPv4 chỉ có khoảng 4,3 tỷ địa chỉ, và con số này đã cạn ki�
 #### Kết luận
 
 Một địa chỉ IP không chỉ là "số để nhận diện máy" — nó mang trong mình cả thông tin về việc máy đó thuộc mạng nào, và phạm vi nó được phép xuất hiện (private hay public). Hiểu đúng cấu trúc này là nền tảng bắt buộc trước khi bước vào subnetting — nơi ranh giới network/host portion sẽ được tính toán một cách cụ thể.
+
+```quiz
+{
+  "title": "Tự kiểm tra kiến thức",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Địa chỉ nào thuộc dải IPv4 private RFC 1918?",
+      "options": [
+        "172.40.1.5",
+        "8.8.8.8",
+        "172.20.1.5"
+      ],
+      "answer": 2,
+      "explanation": "172.16.0.0/12 bao gồm 172.16.0.0 đến 172.31.255.255; không phải mọi địa chỉ 172.x đều private."
+    },
+    {
+      "id": "q2",
+      "question": "Ký hiệu /24 trong IPv4 cho biết điều gì?",
+      "options": [
+        "Có chính xác 24 máy được kết nối",
+        "Địa chỉ luôn là public",
+        "24 bit đầu thuộc tiền tố mạng"
+      ],
+      "answer": 2,
+      "explanation": "Độ dài prefix phân chia phần mạng và phần host, không mô tả số máy đang hoạt động."
+    }
+  ]
+}
+```

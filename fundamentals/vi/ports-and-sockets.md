@@ -6,6 +6,10 @@ date: "2026-07-01"
 lang: "vi"
 weight: 7
 locked: false
+learning:
+  path: network-foundations
+  section: links-and-services
+  step: ports-and-sockets
 ---
 
 # Port và Socket: Định Danh Ứng Dụng
@@ -82,3 +86,33 @@ Khi một ứng dụng client (ví dụ trình duyệt) khởi tạo kết nối
 #### Kết luận
 
 Địa chỉ IP đưa dữ liệu đến đúng cánh cửa của ngôi nhà, nhưng port mới là thứ dẫn dữ liệu đến đúng căn phòng bên trong. Không có port, mọi ứng dụng trên cùng một máy sẽ phải tranh giành cùng một luồng dữ liệu duy nhất — và Internet như hiện nay, nơi một máy có thể vừa lướt web, vừa gọi video, vừa tải file, sẽ không thể vận hành được.
+
+```quiz
+{
+  "title": "Tự kiểm tra kiến thức",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Port TCP/UDP giúp phân biệt điều gì trên một host?",
+      "options": [
+        "Mọi người dùng bằng họ tên",
+        "Các endpoint ứng dụng hoặc dịch vụ",
+        "Các card mạng vật lý"
+      ],
+      "answer": 1,
+      "explanation": "Port là thành phần của endpoint tầng giao vận, khác với cổng cắm vật lý."
+    },
+    {
+      "id": "q2",
+      "question": "TCP và UDP có thể dùng cùng số cổng không?",
+      "options": [
+        "Không, một số chỉ thuộc một giao thức",
+        "Chỉ khi cả hai dùng cùng MAC",
+        "Có, vì không gian cổng được phân biệt theo giao thức"
+      ],
+      "answer": 2,
+      "explanation": "Ví dụ DNS có thể dùng cả TCP 53 và UDP 53. Cần biết cả giao thức khi mô tả endpoint."
+    }
+  ]
+}
+```

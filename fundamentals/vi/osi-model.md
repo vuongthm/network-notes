@@ -6,13 +6,17 @@ date: "2025-7-1"
 lang: "vi"
 weight: 1
 locked: false
+learning:
+  path: network-foundations
+  section: network-models
+  step: osi-model
 ---
 
 # Mô Hình OSI Giải Thích Rõ Ràng
 
 Mô hình OSI (Open Systems Interconnection) là một khung khái niệm tiêu chuẩn hóa các chức năng của hệ thống truyền thông thành bảy tầng riêng biệt.
 
-![Ngăn xếp mạng nhiều lớp](/media/notes/fundamentals/layered-stack.svg)
+![Ngăn xếp mạng nhiều lớp](/media/notes/fundamentals/osi-model.png)
 
 ## Tại Sao Nó Tồn Tại
 
@@ -62,3 +66,44 @@ Mô hình này không phải là một giao thức stack. Nó là cách mô tả
 #### Quy tắc thực tế
 
 Khi bạn xác định được lớp nơi hành vi thay đổi, thời gian gỡ lỗi thường giảm đi rất nhiều.
+
+```quiz
+{
+  "title": "Tự kiểm tra kiến thức",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Định tuyến IP thuộc tầng nào của OSI?",
+      "options": [
+        "Tầng 2 — Data Link",
+        "Tầng 4 — Transport",
+        "Tầng 3 — Network"
+      ],
+      "answer": 2,
+      "explanation": "Tầng mạng dùng địa chỉ logic và định tuyến gói giữa các mạng."
+    },
+    {
+      "id": "q2",
+      "question": "OSI nên được hiểu là gì?",
+      "options": [
+        "Một sản phẩm cân bằng tải",
+        "Mô hình tham chiếu chức năng truyền thông",
+        "Một giao thức thay thế TCP"
+      ],
+      "answer": 1,
+      "explanation": "OSI là khung mô tả bảy tầng, không phải một giao thức stack đang chạy."
+    },
+    {
+      "id": "q3",
+      "question": "Trong Ethernet, địa chỉ MAC gắn với tầng nào?",
+      "options": [
+        "Tầng 3 — Network",
+        "Tầng 2 — Data Link",
+        "Tầng 7 — Application"
+      ],
+      "answer": 1,
+      "explanation": "Địa chỉ MAC được dùng trong frame của tầng liên kết dữ liệu; IP thuộc tầng mạng."
+    }
+  ]
+}
+```

@@ -6,6 +6,10 @@ date: "2025-7-1"
 lang: "vi"
 weight: 4
 locked: false
+learning:
+  path: network-foundations
+  section: network-models
+  step: encapsulation-and-data-flow
 ---
 
 # Encapsulation: Dữ Liệu Biến Hình Qua Từng Tầng
@@ -70,3 +74,33 @@ Một cách hình dung dễ nhớ: gửi một lá thư (data) vào trong một 
 #### Kết luận
 
 Encapsulation là lý do vì sao một tầng có thể thay đổi công nghệ (ví dụ đổi Wi-Fi sang Ethernet ở tầng Link) mà không cần bất kỳ tầng nào khác biết đến sự thay đổi đó — mỗi lớp bao bì chỉ cần đúng chuẩn ở lớp của mình, không cần quan tâm những lớp còn lại được gói ra sao.
+
+```quiz
+{
+  "title": "Tự kiểm tra kiến thức",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Đóng gói ở bên gửi thường diễn ra thế nào?",
+      "options": [
+        "Mọi tầng dùng cùng một địa chỉ MAC",
+        "Dữ liệu đi xuống và được thêm thông tin giao thức cần thiết",
+        "Mọi header đều bị xóa trước khi gửi"
+      ],
+      "answer": 1,
+      "explanation": "Mỗi tầng thêm thông tin phục vụ nhiệm vụ của nó; bên nhận xử lý theo chiều ngược lại."
+    },
+    {
+      "id": "q2",
+      "question": "Trong LAN IPv4 thông thường, gửi đến mạng khác qua gateway thì MAC đích của frame là gì?",
+      "options": [
+        "Luôn là địa chỉ broadcast",
+        "MAC của gateway ở liên kết cục bộ",
+        "Luôn là MAC của máy ở mạng xa"
+      ],
+      "answer": 1,
+      "explanation": "Frame chỉ đi qua liên kết hiện tại. Địa chỉ IP đích vẫn mô tả đích ở tầng mạng."
+    }
+  ]
+}
+```

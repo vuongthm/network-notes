@@ -6,10 +6,14 @@ date: "2025-7-1"
 lang: "en"
 weight: 1
 locked: false
+learning:
+  path: network-foundations
+  section: network-models
+  step: osi-model
 ---
 # The OSI Model Explained Clearly
 The OSI (Open Systems Interconnection) model is a conceptual framework that standardizes the functions of a communication system into seven distinct layers.
-![Layered network stack](/media/notes/fundamentals/layered-stack.svg)
+![Layered network stack](/media/notes/fundamentals/osi-model.png)
 ## Why It Exists
 Before the OSI model, different manufacturers built network devices that were incompatible with one another. Devices from one manufacturer couldn't communicate with devices from another. The OSI model solved this by providing a common language and a common set of rules.
 ### Core mindset
@@ -41,3 +45,44 @@ A common point of confusion is between "layer 4 load balancing" and "layer 7 loa
 This model isn't a protocol stack. It's a way of describing the fault domain.
 #### A practical rule
 Once you identify the layer where the behavior changes, debugging time usually drops significantly.
+
+```quiz
+{
+  "title": "Check your understanding",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Which OSI layer handles IP routing?",
+      "options": [
+        "Layer 2 — Data Link",
+        "Layer 4 — Transport",
+        "Layer 3 — Network"
+      ],
+      "answer": 2,
+      "explanation": "The network layer uses logical addresses and routes packets between networks."
+    },
+    {
+      "id": "q2",
+      "question": "What is the OSI model?",
+      "options": [
+        "A load-balancing product",
+        "A reference model for communication functions",
+        "A protocol replacing TCP"
+      ],
+      "answer": 1,
+      "explanation": "OSI describes seven functional layers; it is not itself a running protocol stack."
+    },
+    {
+      "id": "q3",
+      "question": "In Ethernet, which layer uses MAC addresses?",
+      "options": [
+        "Layer 3 — Network",
+        "Layer 2 — Data Link",
+        "Layer 7 — Application"
+      ],
+      "answer": 1,
+      "explanation": "MAC addresses are used in link-layer frames; IP addressing belongs to the network layer."
+    }
+  ]
+}
+```
