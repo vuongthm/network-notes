@@ -35,5 +35,32 @@
     "networking"
   ],
   "legacyRoutes": true,
-  "mediaNamespace": "notes"
+  "mediaNamespace": "notes",
+  "modules": [
+    {
+      "id": "fundamentals",
+      "title": {
+        "vi": "Nền tảng mạng",
+        "en": "Network fundamentals"
+      },
+      "order": 10
+    },
+    {
+      "id": "protocols-and-devices",
+      "title": {
+        "vi": "Giao thức & thiết bị",
+        "en": "Protocols & devices"
+      },
+      "order": 20
+    },
+    {
+      "id": "how-the-web-works",
+      "path": "how-the-web-works",
+      "title": {
+        "vi": "Web hoạt động như thế nào",
+        "en": "How The Web Works"
+      },
+      "order": 30
+    }
+  ]
 }
